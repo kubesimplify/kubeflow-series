@@ -31,11 +31,11 @@ To deploy Kubeflow in a `kind` cluster you could also use this convenience scrip
 > Warning: The below command executes the script directly if you want to preview the script first please run
 > 
 > ```sh
->wget https://gist.githubusercontent.com/Rishit-dagli/ec2af95eff53c79d91be7bdddf9c93eb/raw/5051e645d3bffc5dba7195d9098c2e62524ae39a/kubeflow-kind.sh
+>wget https://raw.githubusercontent.com/kubesimplify/kubeflow-series/kubeflow-1/assets/kubeflow-machine-learning-on-kubeflow/scripts/kubeflow-kind.sh
 > ```
 
 ```sh
-wget -O - https://gist.githubusercontent.com/Rishit-dagli/ec2af95eff53c79d91be7bdddf9c93eb/raw/5051e645d3bffc5dba7195d9098c2e62524ae39a/kubeflow-kind.sh | bash
+wget -O - https://raw.githubusercontent.com/kubesimplify/kubeflow-series/kubeflow-1/assets/kubeflow-machine-learning-on-kubeflow/scripts/kubeflow-kind.sh | bash
 ```
 
 You might notice that the creation of some resources fails which is expected since for example the creation of `CustomResources` would be possible only after `CustomResourceDefintions` are up. This creates quite a few resources in your cluster. You should ensure all the pods are ready before trying to connect to Kubeflow. You can check this by running:
