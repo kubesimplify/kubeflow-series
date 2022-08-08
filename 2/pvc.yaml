@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: shared-claim
+  namespace: kubeflow-user-example-com
+  annotations:
+    volume.beta.kubernetes.io/storage-class: portworx-io-priority-high
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 8Gi
