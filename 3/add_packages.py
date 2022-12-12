@@ -7,7 +7,7 @@ import kfp
 multiply_op = kfp.components.create_component_from_func(
     multiply,
     output_component_file="multiply_component.yaml",
-    packages_to_install=['pandas==0.24'],
+    packages_to_install=["pandas==0.24"],
 )
 
 import kfp.dsl as dsl

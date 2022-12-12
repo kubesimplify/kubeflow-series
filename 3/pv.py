@@ -8,16 +8,10 @@ def write_to_volume():
         file.write("Hello world")
 
 
-@dsl.pipeline(
-    name="volumeop-basic",
-    description="A Basic Example on VolumeOp Usage."
-)
-def volumeop_basic(size: str="1Gi"):
+@dsl.pipeline(name="volumeop-basic", description="A Basic Example on VolumeOp Usage.")
+def volumeop_basic(size: str = "1Gi"):
     vop = dsl.VolumeOp(
-        name="create-pvc",
-        resource_name="my-pvc",
-        modes=dsl.VOLUME_MODE_RWO,
-        size=size
+        name="create-pvc", resource_name="my-pvc", modes=dsl.VOLUME_MODE_RWO, size=size
     )
 
     write_to_volume().add_pvolumes({"/mnt": vop.volume})

@@ -1,12 +1,16 @@
 from typing import NamedTuple
 
-def multiply(a: float, b: float) -> NamedTuple("MultiplyOutput",[("result", float)]):
+
+def multiply(a: float, b: float) -> NamedTuple("MultiplyOutput", [("result", float)]):
     from collections import namedtuple
-    output = namedtuple('MultiplyOutput', ['result'])
-    return output(a*b)
+
+    output = namedtuple("MultiplyOutput", ["result"])
+    return output(a * b)
+
 
 def add(a: float, b: float) -> float:
     return a + b
+
 
 import kfp
 
@@ -19,12 +23,10 @@ add_op = kfp.components.create_component_from_func(
 )
 
 import kfp.dsl as dsl
+
+
 @dsl.pipeline(name="Multiply and Add", description="An example pipeline.")
-def multiply_add_pipeline(
-    a="2",
-    b="5",
-    c="3"
-):
+def multiply_add_pipeline(a="2", b="5", c="3"):
     multiply_task = multiply_op(a, b)
 
     # Calculate (a * b) + c
